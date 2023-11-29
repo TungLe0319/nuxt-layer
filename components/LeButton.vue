@@ -1,6 +1,6 @@
 <template>
   <button ref="containerRef"
-    :class="['relative overflow-hidden', { 'outlined': variant === 'outlined', 'link': variant === 'link' }]"
+    :class="['relative overflow-hidden    rounded  font-bold px-4 py-2   hover:scale-[1.03] active:scale-100 transition-all duration-150 ease-in-out  ', { ' bg-transparent border': variant === 'outlined', ' border-none hover:bg-white/10  ': variant === 'text' }]"
     @mousedown="addRipple">
     <transition-group name="ripple" tag="div">
       <div v-for="ripple in ripples" :key="ripple.id" class="ripple-circle" :style="{
@@ -49,10 +49,6 @@ const purgeRipples = () => {
 </script>
 
 <style scoped>
-button {
-  @apply font-bold px-4 py-2 hover:text-white hover:scale-[1.03] active:scale-100 transition-all duration-150 ease-in-out;
-}
-
 .outlined {
   background-color: transparent;
   border: 1px solid
@@ -90,4 +86,5 @@ button {
     transform: scale(4);
     opacity: 0;
   }
-}</style>
+}
+</style>
